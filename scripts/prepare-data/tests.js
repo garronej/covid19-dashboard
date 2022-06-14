@@ -8,9 +8,9 @@ const departementsIndex = keyBy(departements, 'code')
 const regionsIndex = keyBy(regions, 'code')
 
 async function loadSidepTest() {
-  const SIDEP_DEP_DATA = 'https://www.data.gouv.fr/fr/datasets/r/406c6a23-e283-4300-9484-54e78c8ae675'
-  const SIDEP_REG_DATA = 'https://www.data.gouv.fr/fr/datasets/r/001aca18-df6a-45c8-89e6-f82d689e6c01'
-  const SIDEP_FRA_DATA = 'https://www.data.gouv.fr/fr/datasets/r/dd0de5d9-b5a5-4503-930a-7b08dc0adc7c'
+  const SIDEP_DEP_DATA = 'https://filedn.com/lYPEPucNMheV19aDu23lK0Q/Etalab/sp_pos_quot_dep-2022-03-07-19h07.csv'
+  const SIDEP_REG_DATA = 'https://filedn.com/lYPEPucNMheV19aDu23lK0Q/Etalab/sp_pos_quot_reg-2022-03-07-19h07.csv'
+  const SIDEP_FRA_DATA = 'https://filedn.com/lYPEPucNMheV19aDu23lK0Q/Etalab/sp_pos_quot_fra-2022-03-07-19h07.csv'
 
   const departementsReports = chain(await fetchCsv(SIDEP_DEP_DATA))
     .filter(r => r.dep in departementsIndex)
