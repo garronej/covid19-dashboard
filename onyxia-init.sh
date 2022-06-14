@@ -4,5 +4,3 @@ sudo npm install -g yarn
 
 # cd /home/coder/work/covid19-dashboard
 # yarn
-
-docker login -u $DOCKERHUB_USERNAME
