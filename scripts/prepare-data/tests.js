@@ -1,5 +1,6 @@
 const {chain, sumBy, keyBy} = require('lodash')
 const {fetchCsv} = require('./util')
+const { getS3DownloadUrl } = require("./s3Download");
 
 const departements = require('@etalab/decoupage-administratif/data/departements.json')
 const regions = require('@etalab/decoupage-administratif/data/regions.json')
@@ -8,9 +9,9 @@ const departementsIndex = keyBy(departements, 'code')
 const regionsIndex = keyBy(regions, 'code')
 
 async function loadSidepTest() {
-  const SIDEP_DEP_DATA = 'https://filedn.com/lYPEPucNMheV19aDu23lK0Q/Etalab/sp_pos_quot_dep-2022-03-07-19h07.csv'
-  const SIDEP_REG_DATA = 'https://filedn.com/lYPEPucNMheV19aDu23lK0Q/Etalab/sp_pos_quot_reg-2022-03-07-19h07.csv'
-  const SIDEP_FRA_DATA = 'https://filedn.com/lYPEPucNMheV19aDu23lK0Q/Etalab/sp_pos_quot_fra-2022-03-07-19h07.csv'
+  const SIDEP_DEP_DATA = await getS3DownloadUrl("sp_pos_quot_dep-2022-03-07-19h07.csv");
+  const SIDEP_REG_DATA = await getS3DownloadUrl("sp_pos_quot_reg-2022-03-07-19h07.csv");
+  const SIDEP_FRA_DATA = await getS3DownloadUrl("sp_pos_quot_fra-2022-03-07-19h07.csv");
 
   const departementsReports = chain(await fetchCsv(SIDEP_DEP_DATA))
     .filter(r => r.dep in departementsIndex)
