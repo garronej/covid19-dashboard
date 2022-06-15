@@ -4,6 +4,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY . .
+RUN echo $AWS_S3_ENDPOINT
 RUN yarn prepare-data
 
 # production environment
