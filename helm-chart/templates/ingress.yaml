@@ -1,9 +1,6 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullNameApi := include "covid19-dashboard.api.fullname" . -}}
 {{- $fullNameUi := include "covid19-dashboard.ui.fullname" . -}}
 {{- $fullName := include "covid19-dashboard.fullname" . -}}
-{{- $svcPortApi := .Values.api.service.port -}}
-{{- $svcPortUi := .Values.api.service.port -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -31,13 +28,6 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          - path: /api
-            pathType: Prefix
-            backend:
-              service:
-                name: {{ $fullNameApi }}
-                port:
-                  number: {{ $svcPortApi }}
           - path: /
             pathType: Prefix
             backend:

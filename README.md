@@ -1,3 +1,9 @@
+
+
+<a href="https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/vscode?autoLaunch=true&onyxia.friendlyName=«Dashboard%20Covid%2019»&git.repository=«https%3A%2F%2Fgithub.com%2Fgarronej%2Fcovid19-dashboard»&vault.secret=«dashboad_covid»&networking.user.enabled=true&networking.user.port=3000&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Fgarronej%2Fcovid19-dashboard%2Fmaster%2Fonyxia-init.sh»&security.allowlist.enabled=false&security.networkPolicy.enabled=false">
+    <img height=20 src="https://user-images.githubusercontent.com/6702424/173724486-30b6232a-c5d2-40da-a0cc-4d4a11824135.png">
+</a>
+
 # Ancien tableau de bord de suivi de l'épidémie de COVID-19
 
 Ce tableau de bord est le fruit d’une collaboration entre les membres du collectif [OpenCovid](https://github.com/opencovid19-fr) et le département Etalab de la Direction Interministérielle du Numérique. Il a été mis en ligne le 28 mars 2020, afin de répondre aux besoins d’information des citoyens et des citoyennes en matière de transparence sur l’évolution de l’épidémie de coronavirus en France.
