@@ -6,7 +6,7 @@
   "private": false,
   "license": "MIT",
   "scripts": {
-    "dev": "yarn prepare-data && next",
+    "dev": "next",
     "build": "next build",
     "export": "next export",
     "start": "serve out",
