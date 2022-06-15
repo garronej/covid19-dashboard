@@ -1,0 +1,51 @@
+# Default values for onyxia-bis.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+imagePullSecrets: []
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  clusterAdmin: false # If true, give cluster admin permissions. Otherwise, be admin scoped to the namespace
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+ingress:
+  enabled: true
+  annotations:
+    {}
+  hosts:
+    - host: covid19-dashboard.lab.sspcloud.fr
+  tls:
+    - hosts:
+      - covid19-dashboard.lab.sspcloud.fr
+
+ui:
+  name: ui
+  replicaCount: 2
+  image:
+    name: garronej/covid19-dashboard
+    version: master
+    pullPolicy: Always
+  nodeSelector:
+    infra: "true"
+  tolerations:
+    - key: "infra"
+      operator: "Exists"
+  podSecurityContext:
+    {}
+  securityContext:
+    {}
+  containerPort: 3000
+  service:
+    type: ClusterIP
+    port: 80
+  resources:
+    {}
+  affinity: {}
+
+      
