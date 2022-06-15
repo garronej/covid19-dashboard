@@ -6,8 +6,6 @@ async function getS3DownloadUrl(fileName) {
 
   const { AWS_S3_ENDPOINT, AWS_DEFAULT_REGION, AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID, AWS_SESSION_TOKEN } = process.env;
 
-  console.log(AWS_S3_ENDPOINT, AWS_DEFAULT_REGION, AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID, AWS_SESSION_TOKEN);
-
   const minioClient = new Minio.Client({
     "endPoint": AWS_S3_ENDPOINT,
     "port": 443,
@@ -15,6 +13,7 @@ async function getS3DownloadUrl(fileName) {
     "accessKey": AWS_ACCESS_KEY_ID,
     "secretKey": AWS_SECRET_ACCESS_KEY,
     "region": AWS_DEFAULT_REGION,
+    "sessionToken": AWS_SESSION_TOKEN
   });
 
   const bucketName = "jgarrone";
@@ -47,6 +46,8 @@ async function getS3DownloadUrl(fileName) {
     "name": "X-Amz-Security-Token",
     "value": AWS_SESSION_TOKEN,
   });
+
+  console.log(downloadUrl);
 
   return downloadUrl;
 
