@@ -25,9 +25,9 @@ jobs:
           context: .
           tags: garronej/covid19-dashboard:master 
           build-args: |
-            AWS_S3_ENDPOINT=foo
-            AWS_DEFAULT_REGION=bar
-            AWS_SECRET_ACCESS_KEY=baz
-            AWS_ACCESS_KEY_ID=xxx
+            "AWS_S3_ENDPOINT=foo"
+            "AWS_DEFAULT_REGION=bar"
+            "AWS_SECRET_ACCESS_KEY=baz"
+            "AWS_ACCESS_KEY_ID=xxx"
 
   
