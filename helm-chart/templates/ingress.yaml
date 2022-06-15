@@ -1,6 +1,8 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullNameUi := include "covid19-dashboard.ui.fullname" . -}}
 {{- $fullName := include "covid19-dashboard.fullname" . -}}
+{{- $svcPortUi := .Values.ui.service.port -}}
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
