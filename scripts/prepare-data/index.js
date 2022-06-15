@@ -93,9 +93,6 @@ async function main() {
     JSON.stringify(data.filter(r => r.code === 'FRA' && !isUndefined(r.deces)).map(r => omit(r, 'testsRealisesDetails', 'testsPositifsDetails', 'code', 'nom', 'tauxIncidence', 'tauxReproductionEffectif', 'tauxOccupationRea', 'tauxPositiviteTests')), null, 2)
   )
 
-  if (process.env.DATAGOUV_PUBLISH === '1' || process.env.CONTEXT === 'production') {
-    await replaceResourceFile('5f69ecb155c43420918410b8', 'd2671c6c-c0eb-4e12-b69a-8e8f87fc224c', 'synthese-fra.json', frDataJson)
-  }
 
   const frDataCsv = Buffer.from(
     Papa.unparse(data.filter(r => r.code === 'FRA' && !isUndefined(r.deces)).map(r => ({
@@ -112,10 +109,6 @@ async function main() {
       nouveaux_patients_reanimation: 'nouvellesReanimations' in r ? r.nouvellesReanimations : ''
     })))
   )
-
-  if (process.env.DATAGOUV_PUBLISH === '1' || process.env.CONTEXT === 'production') {
-    await replaceResourceFile('5f69ecb155c43420918410b8', 'd3a98a30-893f-47f7-96c5-2f4bcaaa0d71', 'synthese-fra.csv', frDataCsv)
-  }
 
   await outputJson(join(rootPath, 'dates.json'), dates)
 }

@@ -48,9 +48,6 @@ async function buildGouvFr(records) {
     tauxPositiviteTests: computeIndicator(recordsFrance, 'tauxPositiviteTests')
   }
 
-  if (process.env.DATAGOUV_PUBLISH === '1' || process.env.CONTEXT === 'production') {
-    await replaceResourceFile('5eb55e49899a159c2e0053c2', '7d2cf6c0-8424-4b3e-8fb0-e75e10507dd8', 'fra-latest.json', Buffer.from(JSON.stringify(data, null, 2)))
-  }
 }
 
 module.exports = {buildGouvFr}
